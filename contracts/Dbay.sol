@@ -185,6 +185,8 @@ contract Dbay {
 
     function listItem(uint32 price, string memory name, uint32 quantity) public isUser {
         require(price > 0);
+        require(quantity > 0);
+        require(bytes(name).length > 0);
 
         Good memory good = Good(price, name, quantity, goodId, msg.sender, State.Listed);
         Goods[msg.sender].push(good);

@@ -64,6 +64,24 @@ contract("List actions", async accounts => {
         )
     })
 
+    it("Throws an error when trying to list an item with an invalid price", async () => {
+        await truffleAssert.reverts(
+            dBay.listItem(0, name, quantity, {from: owner, gas: 400000})
+        )
+    })    
+
+    it("Throws an error when trying to list an item with an invalid quantity", async () => {
+        await truffleAssert.reverts(
+            dBay.listItem(price, name, 0, {from: owner, gas: 400000})
+        )
+    })   
+
+    it("Throws an error when trying to list an item with an invalid name", async () => {
+        await truffleAssert.reverts(
+            dBay.listItem(price, "", quantity, {from: owner, gas: 400000})
+        )
+    }) 
+
     it("Lists an item", async () => {
         let OwnItems = await dBay.getOwnItems()
         assert.equal(OwnItems.length, 0, "User does not have 0 items before listing")
