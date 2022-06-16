@@ -28,6 +28,7 @@ contract Dbay {
     event NewUser(string username, string shippingAddr, address wallet);
     event PurchaseCount(uint count);
     event SoldCount(uint count);
+    event UpdateListings(address indexed _from, string itemName, uint32 itemPrice, uint32 itemQuantity, string sellerName, uint sellerRep);
 
     Good[] private Store; // contains all goods
     mapping(address => User) private Users;
@@ -187,11 +188,13 @@ contract Dbay {
         require(price > 0);
         require(quantity > 0);
         require(bytes(name).length > 0);
+        User memory Seller = Users[msg.sender];
 
         Good memory good = Good(price, name, quantity, goodId, msg.sender, State.Listed);
         Goods[msg.sender].push(good);
         Store.push(good);
         goodId += 1;
+        emit UpdateListings(msg.sender, name, price, quantity, Seller.username, Seller.sellerRep);
     }
 
     function accept() payable public {}
