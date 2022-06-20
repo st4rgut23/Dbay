@@ -1982,10 +1982,16 @@
       "links": {},
       "address": "0x1804052D2DA592A7888997672FDc1011dB36800b",
       "transactionHash": "0xa07919809ff2de0aae8e2ee77b76059c0d07308a80ae4318f1910ceca929e66f"
+    },
+    "1655664316374": {
+      "events": {},
+      "links": {},
+      "address": "0x7Db245a7B01cBa6f59fFD7C25d7A8871e19B627c",
+      "transactionHash": "0x8082453c9dc97452e084dd639cdb7a4a3e3d046d89b2d6c15ee8146cfda15036"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-16T04:48:08.909Z",
+  "updatedAt": "2022-06-19T18:51:21.946Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
