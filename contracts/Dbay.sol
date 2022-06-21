@@ -9,7 +9,7 @@ contract Dbay {
     State public GoodState;
 
     struct Good {
-        uint32 price;
+        uint32 price; // szabo units
         string name;
         uint quantity;
         uint32 id; // aka the listing id, which is unique even if the same good is listed more than once
